@@ -1,0 +1,4 @@
+spring.application.name=EcoCheck2026
+server.servlet.context-path=/ecocheck
+spring.profiles.active=dev
+

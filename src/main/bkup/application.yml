@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: EcoCheck2026
+  profiles:
+    active: dev
+server:
+  servlet:
+    context-path: /ecocheck
