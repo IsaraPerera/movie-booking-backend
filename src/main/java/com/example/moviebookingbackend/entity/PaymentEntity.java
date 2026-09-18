@@ -4,6 +4,8 @@ import com.example.moviebookingbackend.entity.enums.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -13,18 +15,15 @@ import lombok.*;
 @Table(name = "payments")
 public class PaymentEntity {
     @Id
-    private String paymentId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long paymentId; 
 
     @OneToOne
     @JoinColumn(name = "booking_id", nullable = false)
     private BookingEntity booking;
 
-    @Column(nullable = false)
-    private String amount;
-
-    @Column(nullable = false)
-    private String paymentDate;
-
+    private Double amount;             
+    private LocalDateTime paymentDate; 
     private String paymentMethod;
 
     @Enumerated(EnumType.STRING)

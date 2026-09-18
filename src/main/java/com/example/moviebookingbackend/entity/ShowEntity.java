@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,7 +18,8 @@ import java.util.List;
 @Table(name = "shows")
 public class ShowEntity {
     @Id
-    private String showId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long showId; 
 
     @ManyToOne
     @JoinColumn(name = "movie_id", nullable = false)
@@ -26,9 +29,9 @@ public class ShowEntity {
     @JoinColumn(name = "theatre_id", nullable = false)
     private TheatreEntity theatre;
 
-    private String showDate;
-    private String showTime;
-    private String ticketPrice;
+    private LocalDate showDate; 
+    private LocalTime showTime; 
+    private Double ticketPrice; 
 
     @Enumerated(EnumType.STRING)
     private ShowStatus showStatus;

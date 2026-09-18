@@ -17,7 +17,8 @@ import java.util.List;
 @Table(name = "movies")
 public class MovieEntity implements Serializable {
     @Id
-    private String movieId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long movieId; 
 
     @Column(nullable = false)
     private String title;
@@ -25,9 +26,7 @@ public class MovieEntity implements Serializable {
     @Column(nullable = false)
     private String description;
 
-    @Column(unique = true, nullable = false)
-    private String duration;
-
+    private Integer duration; 
     private String language;
     private String genre;
     private String releaseDate;

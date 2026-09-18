@@ -16,7 +16,8 @@ import java.util.List;
 @Table(name = "theatres")
 public class TheatreEntity {
     @Id
-    private String theatreId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long theatreId; 
 
     @Column(nullable = false)
     private String name;
@@ -24,7 +25,7 @@ public class TheatreEntity {
     @Column(nullable = false)
     private String location;
 
-    private String capacity;
+    private Integer capacity; 
 
     @Enumerated(EnumType.STRING)
     private TheatreStatus theatreStatus;

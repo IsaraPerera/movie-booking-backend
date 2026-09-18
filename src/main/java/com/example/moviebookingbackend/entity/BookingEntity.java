@@ -1,9 +1,10 @@
 package com.example.moviebookingbackend.entity;
 
 import com.example.moviebookingbackend.entity.enums.BookingStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +15,8 @@ import lombok.*;
 @Table(name = "bookings")
 public class BookingEntity {
     @Id
-    private String bookingId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bookingId; 
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -25,15 +27,15 @@ public class BookingEntity {
     private ShowEntity show;
 
     @Column(nullable = false)
-    private String seatNumbers;
-    private String numberOfTickets;
-    private String totalAmount;
-    private String bookingDate;
+    private String seatNumbers; 
+
+    private Integer numberOfTickets; 
+    private Double totalAmount;       
+    private LocalDateTime bookingDate; 
 
     @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus;
 
     @OneToOne(mappedBy = "booking")
-    @JsonIgnore
     private PaymentEntity payment;
 }
