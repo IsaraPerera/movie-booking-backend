@@ -17,7 +17,6 @@ import java.util.List;
 @Table(name = "movies")
 public class MovieEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String movieId;
 
     @Column(nullable = false)

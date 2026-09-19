@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @Table(name = "payments")
 public class PaymentEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String paymentId;
 
     @OneToOne

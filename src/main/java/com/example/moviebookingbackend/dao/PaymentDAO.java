@@ -8,5 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface PaymentDAO extends JpaRepository<PaymentEntity, String> {
-    Optional<PaymentEntity> findByBookingId(String bookingId);
-}
+    Optional<PaymentEntity> findByBookingBookingId(String bookingId);}

@@ -29,7 +29,7 @@ public class PaymentServiceIMPL implements PaymentService {
 
     @Override
     public PaymentDTO getPaymentByBookingId(String bookingId) {
-        PaymentEntity paymentEntity = paymentDAO.findByBookingId(bookingId)
+        PaymentEntity paymentEntity = paymentDAO.findByBookingBookingId(bookingId)
                 .orElseThrow(() -> new DataNotFoundException("Payment not found for booking id: " + bookingId));
         return conversion.toPaymentDTO(paymentEntity);
     }
