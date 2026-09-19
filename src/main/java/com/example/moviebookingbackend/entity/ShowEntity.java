@@ -19,7 +19,7 @@ import java.util.List;
 public class ShowEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long showId; 
+    private String showId;
 
     @ManyToOne
     @JoinColumn(name = "movie_id", nullable = false)

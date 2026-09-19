@@ -18,5 +18,22 @@ public class IDGenerate {
     public static String userId(){
         return "US-"+UUID.randomUUID();
     }
+    public static String movieId(){return "MV-"+UUID.randomUUID();}
+    public static String bookingId(){
+        return "BK-"+UUID.randomUUID();
+    }
+    public static String paymentId(){
+        return "PM-"+UUID.randomUUID();
+    }
+    public static String showId(){
+        return "SW-"+UUID.randomUUID();
+    }
+    public static String theatreId(){
+        return "TH-"+UUID.randomUUID();
+    }
+
+
+
+
 
 }

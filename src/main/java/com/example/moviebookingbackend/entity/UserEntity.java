@@ -22,7 +22,7 @@ import java.util.List;
 public class UserEntity implements Serializable, UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId; 
+    private String userId;
 
     @Column(nullable = false)
     private String firstName;

@@ -18,7 +18,7 @@ import java.util.List;
 public class MovieEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long movieId; 
+    private String movieId;
 
     @Column(nullable = false)
     private String title;

@@ -2,7 +2,7 @@ package com.example.moviebookingbackend.service.impl;
 
 import com.example.moviebookingbackend.dao.UserDAO;
 import com.example.moviebookingbackend.dto.UserDTO;
-import com.example.moviebookingbackend.entity.UserEntityecho;
+import com.example.moviebookingbackend.entity.UserEntity;
 import com.example.moviebookingbackend.exceptions.DataNotFoundException;
 import com.example.moviebookingbackend.service.UserService;
 import com.example.moviebookingbackend.util.Conversion;
@@ -24,15 +24,15 @@ public class UserServiceIMPL implements UserService {
         //generating id
         user.setUserId(IDGenerate.userId());
         //save data
-        UserEntityecho userEntityecho = conversion.toUserEntity(user);
+        UserEntity userEntity = conversion.toUserEntity(user);
         userDAO.save(conversion.toUserEntity(user));
     }
 
     @Override
     public UserDTO getSelectedUser(String userId) throws ChangeSetPersister.NotFoundException{
-        UserEntityecho userEntityecho = userDAO.findById(userId)
+        UserEntity userEntity = userDAO.findById(userId)
                 .orElseThrow(() ->new DataNotFoundException("User not Found"));
-        return conversion.toUserDTO(userEntityecho);
+        return conversion.toUserDTO(userEntity);
 
     }
 
@@ -44,19 +44,18 @@ public class UserServiceIMPL implements UserService {
 
     @Override
     public void updateUser(String userId,UserDTO user) {
-        UserEntityecho foundUser = userDAO.findById(userId)
+        UserEntity foundUser = userDAO.findById(userId)
                 .orElseThrow(() ->new DataNotFoundException("User not Found"));
         foundUser.setEmail(user.getEmail());
         foundUser.setRole(user.getRole());
         foundUser.setFirstName(user.getFirstName());
         foundUser.setLastName(user.getLastName());
-        foundUser.setPassword(user.getPassword());
         foundUser.setEmail(user.getEmail());
     }
 
     @Override
     public void deleteUser(String userId) {
-        UserEntityecho foundUser = userDAO.findById(userId)
+        UserEntity foundUser = userDAO.findById(userId)
                 .orElseThrow(()->new DataNotFoundException("user not found"));
         userDAO.delete(foundUser);
     }

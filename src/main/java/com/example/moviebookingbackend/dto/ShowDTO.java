@@ -14,7 +14,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShowDTO {
-    private Long id;
+    private String id;
     private MovieDTO movie;
     private TheatreDTO theatre;
     private Long movieId;

@@ -16,79 +16,91 @@ public class Conversion {
     private final ModelMapper mapper;
 
     //    User-Conversion
-    public UserDTO toUserDTO(UserEntityecho userEntityecho) {
-        return mapper.map(userEntityecho, UserDTO.class);
+    public UserDTO toUserDTO(UserEntity userEntity) {
+        return mapper.map(userEntity, UserDTO.class);
     }
 
-    public UserEntityecho toUserEntity(UserDTO userDTO) {
-        return mapper.map(userDTO, UserEntityecho.class);
+    public UserEntity toUserEntity(UserDTO userDTO) {
+        return mapper.map(userDTO, UserEntity.class);
     }
 
-    public List<UserDTO> toUserDTOList(List<UserEntityecho> userEntityechoList) {
-        return mapper.map(userEntityechoList,
+    public List<UserDTO> toUserDTOList(List<UserEntity> userEntityList) {
+        return mapper.map(userEntityList,
                 new TypeToken<List<UserDTO>>() {
                 }.getType()
         );
     }
 
-    //    User-Action-Conversion
+    //    Booking-Conversion
 
-    public UserActionDTO toUserActionDTO(UserActionEntity userActionEntity) {
-        return mapper.map(userActionEntity, UserActionDTO.class);
+    public BookingDTO toBookingDTO(BookingEntity BookingEntity) {
+        return mapper.map(BookingEntity, BookingDTO.class);
     }
 
-    public UserActionEntity toUserActionEntity(UserActionDTO userActionDTO) {
-        return mapper.map(userActionDTO, UserActionEntity.class);
+    public BookingEntity toBookingEntity(BookingDTO BookingDTO) {
+        return mapper.map(BookingDTO, BookingEntity.class);
     }
 
-    public List<UserActionDTO> toUserActionDTOList(List<UserActionEntity> userActionEntities) {
-        return mapper.map(userActionEntities,
-                new TypeToken<List<UserActionDTO>>() {
+    public List<BookingDTO> toBookingDTOList(List<BookingEntity> BookingEntities) {
+        return mapper.map(BookingEntities,
+                new TypeToken<List<BookingDTO>>() {
                 }.getType()
         );
 
     }
-    //    Climate-Action-Conversion
+    //    Movie-Conversion
 
-    public ClimateActionDTO toClimateActionDTO(ClimateActionEntity climateActionEntity) {
-        return mapper.map(climateActionEntity, ClimateActionDTO.class);
+    public MovieDTO toMovieDTO(MovieEntity MovieEntity) {
+        return mapper.map(MovieEntity, MovieDTO.class);
     }
 
-    public ClimateActionEntity toClimateActionEntity(ClimateActionDTO climateActionDTO) {
-        return mapper.map(climateActionDTO, ClimateActionEntity.class);
+    public MovieEntity toMovieEntity(MovieDTO MovieDTO) {
+        return mapper.map(MovieDTO, MovieEntity.class);
     }
 
-    public List<ClimateActionDTO> toClimateActionDTOList(List<ClimateActionEntity> climateActionEntities) {
-        return mapper.map(climateActionEntities,
-                new TypeToken<List<ClimateActionDTO>>() {
+    public List<MovieDTO> toMovieDTOList(List<MovieEntity> MovieEntities) {
+        return mapper.map(MovieEntities,
+                new TypeToken<List<MovieDTO>>() {
                 }.getType()
         );
     }
-    //    Action Category-Conversion
+    //    Payment Conversion
 
-    public ActionCategoryDTO toActionCategoryDTO(ActionCategoryEntity actionCategoryEntity) {
-        return mapper.map(actionCategoryEntity, ActionCategoryDTO.class);
+    public PaymentDTO toPaymentDTO(PaymentEntity PaymentEntity) {
+        return mapper.map(PaymentEntity, PaymentDTO.class);
 
     }
 
-    public ActionCategoryEntity toActionCategoryEntity(ActionCategoryDTO actionCategoryDTO) {
-        return mapper.map(actionCategoryDTO, ActionCategoryEntity.class);
+    public PaymentEntity toPaymentEntity(PaymentDTO PaymentDTO) {
+        return mapper.map(PaymentDTO, PaymentEntity.class);
     }
 
-    public List<ActionCategoryDTO> actionCategoryDTOList(List<ActionCategoryEntity> actionCategoryEntities) {
-        return mapper.map(actionCategoryEntities,
-                new TypeToken<List<ActionCategoryDTO>>() {
+    public List<PaymentDTO> PaymentDTOList(List<PaymentEntity> PaymentEntities) {
+        return mapper.map(PaymentEntities,
+                new TypeToken<List<PaymentDTO>>() {
                 }.getType()
         );
     }
-    // Goal Conversion
-    public GoalDTO toGoalDTO(GoalEntity goalEntity){
-        return mapper.map(goalEntity, GoalDTO.class);
+    // Show Conversion
+    public ShowDTO toShowDTO(ShowEntity ShowEntity){
+        return mapper.map(ShowEntity, ShowDTO.class);
     }
 
-    public GoalEntity toGoalEntity(GoalDTO goalDTO){  return mapper.map(goalDTO, GoalEntity.class); }
+    public ShowEntity toShowEntity(ShowDTO ShowDTO){  return mapper.map(ShowDTO, ShowEntity.class); }
 
-    public List<GoalDTO> toGoalDTOList(List<GoalEntity> goalEntityList) {
-        return mapper.map(goalEntityList, new TypeToken<List<GoalDTO>>(){}.getType());
+    public List<ShowDTO> toShowDTOList(List<ShowEntity> ShowEntityList) {
+        return mapper.map(ShowEntityList, new TypeToken<List<ShowDTO>>(){}.getType());
     }
+
+    // Theatre Conversion
+    public TheatreDTO toTheatreDTO(TheatreEntity TheatreEntity){
+        return mapper.map(TheatreEntity, TheatreDTO.class);
+    }
+
+    public TheatreEntity toTheatreEntity(TheatreDTO TheatreDTO){  return mapper.map(TheatreDTO, TheatreEntity.class); }
+
+    public List<TheatreDTO> toTheatreDTOList(List<TheatreEntity> TheatreEntityList) {
+        return mapper.map(TheatreEntityList, new TypeToken<List<TheatreDTO>>(){}.getType());
+    }
+
 }

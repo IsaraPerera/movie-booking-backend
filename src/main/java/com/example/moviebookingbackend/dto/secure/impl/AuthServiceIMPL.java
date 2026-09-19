@@ -5,7 +5,7 @@ import com.example.moviebookingbackend.dao.UserDAO;
 import com.example.moviebookingbackend.dto.UserDTO;
 import com.example.moviebookingbackend.dto.secure.JWTResponseDTO;
 import com.example.moviebookingbackend.dto.secure.SignInDTO;
-import com.example.moviebookingbackend.entity.UserEntityecho;
+import com.example.moviebookingbackend.entity.UserEntity;
 import com.example.moviebookingbackend.service.secure.AuthService;
 import com.example.moviebookingbackend.util.Conversion;
 import com.example.moviebookingbackend.util.IDGenerate;
@@ -58,7 +58,7 @@ public class AuthServiceIMPL implements AuthService {
         }
         user.setUserId(IDGenerate.userId());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        UserEntityecho savedUser =
+        UserEntity savedUser =
                 userDao.save(conversion.toUserEntity(user));
 
         String token = jwtUtil.generateToken(
