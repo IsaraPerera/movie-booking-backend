@@ -17,59 +17,48 @@ import java.util.List;
 @Transactional
 @Service
 public class TheatreServiceIMPL implements TheatreService {
+
     private final Conversion conversion;
     private final TheatreDAO theatreDAO;
-    @Override
-    public void saveTheatre(TheatreDTO theatre) {
-
-
-    }
-
-    @Override
-    public TheatreDTO getSelectedTheatre(String theatreId) {
-        TheatreEntity theatreEntity = theatreDAO.findById(theatreId)
-                .orElseThrow(() ->new DataNotFoundException("Theatre not Found"));
-        return conversion.toTheatreDTO(theatreEntity);
-    }
 
     @Override
     public TheatreDTO createTheatre(TheatreDTO theatreDTO) {
-        //generating id
         theatreDTO.setTheatreId(IDGenerate.theatreId());
-        //save data
         TheatreEntity theatreEntity = conversion.toTheatreEntity(theatreDTO);
-        theatreDAO.save(conversion.toTheatreEntity(theatreDTO));
+        TheatreEntity savedEntity = theatreDAO.save(theatreEntity);
+        return conversion.toTheatreDTO(savedEntity);
     }
 
     @Override
     public List<TheatreDTO> getAllTheatres() {
-        return conversion.toTheatreDTOList(theatreDAO.findAll());
+        List<TheatreEntity> theatreEntities = theatreDAO.findAll();
+        return conversion.toTheatreDTOList(theatreEntities);
     }
 
     @Override
-    public TheatreDTO getTheatreById(Long id) {
-        return null;
+    public TheatreDTO getTheatreById(String id) {
+        TheatreEntity theatreEntity = theatreDAO.findById(id)
+                .orElseThrow(() -> new DataNotFoundException("Theatre not found with id: " + id));
+        return conversion.toTheatreDTO(theatreEntity);
     }
 
     @Override
-    public TheatreDTO updateTheatre(Long id, TheatreDTO dto) {
-        return null;
+    public TheatreDTO updateTheatre(String id, TheatreDTO theatreDTO) {
+        TheatreEntity existingTheatre = theatreDAO.findById(id)
+                .orElseThrow(() -> new DataNotFoundException("Theatre not found with id: " + id));
+
+        // Update fields (adjust these properties to match your actual entity/DTO fields)
+        existingTheatre.setName(theatreDTO.getName());
+        existingTheatre.setLocation(theatreDTO.getLocation());
+
+        TheatreEntity updatedEntity = theatreDAO.save(existingTheatre);
+        return conversion.toTheatreDTO(updatedEntity);
     }
 
     @Override
-    public void deleteTheatre(Long id) {
-
-    }
-
-    @Override
-    public void updateTheatre(String theatreId, TheatreDTO theatre) {
-        System.out.println("To be updated the theatre id : " +theatreId+ "as:" + theatre.toString());
-    }
-
-    @Override
-    public void deleteTheatre(String theatreId) {
-        TheatreEntity foundTheatre = theatreDAO.findById(theatreId)
-                .orElseThrow(()->new DataNotFoundException("user not found"));
+    public void deleteTheatre(String id) {
+        TheatreEntity foundTheatre = theatreDAO.findById(id)
+                .orElseThrow(() -> new DataNotFoundException("Theatre not found with id: " + id));
         theatreDAO.delete(foundTheatre);
     }
 }

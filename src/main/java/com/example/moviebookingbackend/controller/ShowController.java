@@ -29,12 +29,12 @@ public class ShowController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ShowDTO> getShowById(@PathVariable Long id) {
+    public ResponseEntity<ShowDTO> getShowById(@PathVariable String id) {
         return ResponseEntity.ok(showService.getShowById(id));
     }
 
     @GetMapping("/movie/{movieId}")
-    public ResponseEntity<List<ShowDTO>> getShowsByMovieId(@PathVariable Long movieId) {
+    public ResponseEntity<List<ShowDTO>> getShowsByMovieId(@PathVariable String movieId) {
         return ResponseEntity.ok(showService.getShowsByMovieId(movieId));
     }
 }

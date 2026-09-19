@@ -14,15 +14,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingDTO {
-    private Long id;
-    private Long userId;
+    private String id;
+    private String userId;
     private String userName;
     private ShowDTO show;
 
-    private Long showId;
+    private String showId;
     private List<String> seatNumbers;
     private Integer numberOfTickets;
-
     private Double totalAmount; 
     private LocalDateTime bookingDate;
     private BookingStatus status;

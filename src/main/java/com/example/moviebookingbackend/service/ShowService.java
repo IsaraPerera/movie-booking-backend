@@ -6,6 +6,6 @@ import java.util.List;
 public interface ShowService {
     ShowDTO createShow(ShowDTO dto);
     List<ShowDTO> getAllShows();
-    ShowDTO getShowById(Long id);
-    List<ShowDTO> getShowsByMovieId(Long movieId);
+    ShowDTO getShowById(String id);
+    List<ShowDTO> getShowsByMovieId(String movieId);
 }

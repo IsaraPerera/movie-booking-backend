@@ -33,7 +33,7 @@ public class AuthFilter extends OncePerRequestFilter {
 //            check validity
             if(jwtUtil.validateToken(token)) {
                 System.out.println("Token: "+token);
-                String userEmail = jwtUtil.getUerNameFromToken(token);
+                String userEmail = jwtUtil.getUserNameFromToken(token);
                 System.out.println("User email: " + userEmail);
 
                 if(SecurityContextHolder.getContext().getAuthentication() == null) {

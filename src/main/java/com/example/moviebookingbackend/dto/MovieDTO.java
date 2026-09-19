@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieDTO {
-    private Long id;
+    private String id;
     private String title;
     private String description;
     private Integer duration; 

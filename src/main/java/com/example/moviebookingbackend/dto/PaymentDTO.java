@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentDTO {
-    private Long id;
-    private Long bookingId;
+    private String id;
+    private String bookingId;
     private Double amount; 
     private String paymentMethod;
     private LocalDateTime paymentDate;

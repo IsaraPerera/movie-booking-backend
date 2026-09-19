@@ -29,19 +29,19 @@ public class TheatreController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TheatreDTO> getTheatreById(@PathVariable Long id) {
+    public ResponseEntity<TheatreDTO> getTheatreById(@PathVariable String id) {
         return ResponseEntity.ok(theatreService.getTheatreById(id));
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<TheatreDTO> updateTheatre(@PathVariable Long id, @RequestBody TheatreDTO theatreDTO) {
+    public ResponseEntity<TheatreDTO> updateTheatre(@PathVariable String id, @RequestBody TheatreDTO theatreDTO) {
         return ResponseEntity.ok(theatreService.updateTheatre(id, theatreDTO));
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Void> deleteTheatre(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTheatre(@PathVariable String id) {
         theatreService.deleteTheatre(id);
         return ResponseEntity.noContent().build();
     }

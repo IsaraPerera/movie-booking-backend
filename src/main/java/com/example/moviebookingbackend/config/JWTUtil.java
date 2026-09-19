@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Collection;
 import java.util.Date;
@@ -22,10 +23,11 @@ public class JWTUtil {
     private long expiration;
     private SecretKey key;
 
+
     @PostConstruct
     public void init(){
-//        Use Dependency injected actual values
-        byte [] keyBytes = Base64.getDecoder().decode(jwtSecret);
+        // UsegetBytes() if it's a raw string, or Base64 decoding if encoded
+        byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
@@ -60,7 +62,7 @@ public class JWTUtil {
         }
     }
     //    Extract User Name
-    public String getUerNameFromToken(String token){
+    public String getUserNameFromToken(String token){
         Claims claims = Jwts.parser()
                 .verifyWith(key)
                 .build()

@@ -6,7 +6,7 @@ import java.util.List;
 public interface TheatreService {
     TheatreDTO createTheatre(TheatreDTO dto);
     List<TheatreDTO> getAllTheatres();
-    TheatreDTO getTheatreById(Long id);
-    TheatreDTO updateTheatre(Long id, TheatreDTO dto);
-    void deleteTheatre(Long id);
+    TheatreDTO getTheatreById(String id);
+    TheatreDTO updateTheatre(String id, TheatreDTO dto);
+    void deleteTheatre(String id);
 }

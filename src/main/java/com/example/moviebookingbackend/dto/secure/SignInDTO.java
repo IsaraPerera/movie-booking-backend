@@ -12,6 +12,6 @@ import java.io.Serializable;
 @Data
 @Builder
 public class SignInDTO implements Serializable {
-    private String Email;
-    private String Password;
+    private String email;
+    private String password;
 }

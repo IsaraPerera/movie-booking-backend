@@ -20,7 +20,7 @@ public class PaymentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PaymentDTO> getPaymentByBookingId(@PathVariable Long id) {
+    public ResponseEntity<PaymentDTO> getPaymentByBookingId(@PathVariable String id) {
         return ResponseEntity.ok(paymentService.getPaymentByBookingId(id));
     }
 }

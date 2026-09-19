@@ -29,19 +29,19 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MovieDTO> getMovieById(@PathVariable Long id) {
+    public ResponseEntity<MovieDTO> getMovieById(@PathVariable String id) {
         return ResponseEntity.ok(movieService.getMovieById(id));
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<MovieDTO> updateMovie(@PathVariable Long id, @RequestBody MovieDTO movieDTO) {
+    public ResponseEntity<MovieDTO> updateMovie(@PathVariable String id, @RequestBody MovieDTO movieDTO) {
         return ResponseEntity.ok(movieService.updateMovie(id, movieDTO));
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteMovie(@PathVariable String id) {
         movieService.deleteMovie(id);
         return ResponseEntity.noContent().build();
     }

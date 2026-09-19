@@ -6,7 +6,7 @@ import java.util.List;
 public interface MovieService {
     MovieDTO createMovie(MovieDTO dto);
     List<MovieDTO> getAllMovies();
-    MovieDTO getMovieById(Long id);
-    MovieDTO updateMovie(Long id, MovieDTO dto);
-    void deleteMovie(Long id);
+    MovieDTO getMovieById(String id);
+    MovieDTO updateMovie(String id, MovieDTO dto);
+    void deleteMovie(String id);
 }

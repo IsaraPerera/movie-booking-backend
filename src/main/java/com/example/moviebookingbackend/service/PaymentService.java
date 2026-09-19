@@ -4,5 +4,5 @@ import com.example.moviebookingbackend.dto.PaymentDTO;
 
 public interface PaymentService {
     PaymentDTO processPayment(PaymentDTO dto);
-    PaymentDTO getPaymentByBookingId(Long bookingId);
+    PaymentDTO getPaymentByBookingId(String bookingId);
 }
